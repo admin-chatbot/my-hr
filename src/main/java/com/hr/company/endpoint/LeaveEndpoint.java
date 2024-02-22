@@ -36,6 +36,7 @@ public class LeaveEndpoint {
            Optional<Leave> leave =  leaveService.getLeaveByCode(code);
 
            if (leave.isPresent()) {
+               leave.get().setBalanceLeave(leave.get().getTotalLeave()-leave.get().getAvailedLeave());
                List<LeaveDetails> leaveDetails = leaveDetailsService.getRepository().findLeaveDetailsByEmpCode(leave.get().getCode());
                leave.get().setLeaveDetails(leaveDetails);
            }

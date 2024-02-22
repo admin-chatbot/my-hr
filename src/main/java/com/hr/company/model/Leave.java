@@ -34,6 +34,9 @@ public class Leave implements Serializable {
 
     private Integer availedLeave;
 
+    @Transient
+    private Integer balanceLeave;
+
     @Column(nullable = false)
     private String leaveYear;
 
